@@ -1,0 +1,195 @@
+/* Steaky footer */
+html {
+    position: relative;
+    min-height: 100%;
+    
+}
+
+
+
+/*navbar-fixed-top.css*/
+body {
+    padding-top: 70px;
+    font-family: 'Open Sans', sans-serif;
+    background: url(../img/main_bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Menu Menu Menu Menu Menu Menu*/
+
+.navbar{
+    background-color: #fff;
+    height: 80px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 65, 128, 0.15);
+}
+
+.navbar ul{
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding-top: 15px;
+     background-color: #fff;
+}
+
+#navbar > ul > li:nth-child(5) > a {
+    color: #fff;
+}
+
+
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: rgb(254, 165, 48);
+    background-color: #fff;
+    text-decoration: underline;
+}
+
+
+
+/* Fonts Fonts Fonts Fonts Fonts*/
+h1{
+    font-size: 48px;
+    color: rgb(254, 165, 48);
+    line-height: 1;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+h2{
+    font-size: 30px;
+    color: #993399;
+    font-weight: 300;
+    text-align: center;
+}
+p {
+    font-size: 16px;
+    line-height: 1,4;
+    padding-top: 10px;
+}
+
+
+h3 {
+    color: rgb(254, 165, 48);
+}
+
+h6 {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+bold {
+    font-weight: 800;
+}
+
+
+a {
+    color: #0099cc;
+}
+
+.help-block{
+    font-size: 12px;
+}
+
+.links a{
+    line-height: 36px;
+}
+
+.lead {
+    padding-top: 20px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    line-height: 1.4;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+}
+
+
+.hero__content{
+    padding-top: 130px;
+}
+
+/* Buttons Buttons Buttons Buttons Buttons*/
+
+
+
+.btn {
+    -webkit-border-radius: 35;
+    -moz-border-radius: 35;
+    border-radius: 35px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+}
+
+.btn-primary {
+    background: #ffbc35;
+    background-image: -webkit-linear-gradient(top, #ffbc35, #ff9933);
+    background-image: -moz-linear-gradient(top, #ffbc35, #ff9933);
+    background-image: -ms-linear-gradient(top, #ffbc35, #ff9933);
+    background-image: -o-linear-gradient(top, #ffbc35, #ff9933);
+    background-image: linear-gradient(to bottom, #ffbc35, #ff9933);
+}
+
+.btn-primary:hover {
+    background-image: -webkit-linear-gradient(top, #ff9933, #ffbc35);
+background-image: -moz-linear-gradient(top, #ff9933, #ffbc35);
+background-image: -ms-linear-gradient(top, #ff9933, #ffbc35);
+  background-image: -o-linear-gradient(top, #ff9933, #ffbc35);
+  background-image: linear-gradient(to bottom, #ff9933, #ffbc35);
+  text-decoration: none;   
+}
+
+.btn-ghost {
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgba(252, 171, 0, 0);
+    color: #fff;
+}
+
+.btn-ghost:hover {
+    border: 2px solid rgb(255, 255, 255);
+    background-color: #fff;
+    color: #000;
+}
+
+.content {
+    padding-bottom: 100px;
+}
+
+.content h2{
+    padding-top: 20px;
+}
+
+.content h1{
+    color: #993399;
+    text-align: center;
+
+}
+
+.winners{
+    padding: 30px 0;
+}
+
+.icons {
+    padding: 30px 0;
+}
+
+ol {
+    font-size: 16px;
+    line-height: 1,5;
+}
+
+.code {
+    font-size: 21px;
+    line-height: 1,5;
+    color: rgb(254, 165, 48);
+}
+
+.grey-block{
+    padding: 30px 0;
+   background: #f4f4f4; 
+}   
