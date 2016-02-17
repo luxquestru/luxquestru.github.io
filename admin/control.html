@@ -63,7 +63,7 @@
                 $.ajax({
                     type: "GET",
                     url: "http://83.166.241.9:8080/Service.svc/ICoreService/ControlRSStop",
-                    dataType: "jsonp",
+                    dataType: "json",
                     timeout:5000
                 });
                 setVMButtonState(that.data('machine'), "Start");
@@ -71,7 +71,7 @@
                 $.ajax({
                     type: "GET",
                     url: "http://83.166.241.9:8080/Service.svc/ICoreService/ControlRSStart",
-                    dataType: "jsonp",
+                    dataType: "json",
                     timeout:5000
                 });
                 setVMButtonState(that.data('machine'), "Shutdown");
@@ -118,7 +118,7 @@
         $.ajax({
             type: "GET",
             url: "http://83.166.241.9:8080/Service.svc/ICoreService/GetState",
-            dataType: "jsonp",
+            dataType: "json",
             timeout:5000,
             success: function(data) {
                 $('#table tbody').html(generateOuterTable(data));
