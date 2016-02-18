@@ -119,6 +119,7 @@
             type: "GET",
             url: "http://83.166.241.9:8080/Service.svc/ICoreService/GetState",
             dataType: "json",
+            crossDomain: true,
             timeout:5000,
             success: function(data) {
                 $('#table tbody').html(generateOuterTable(data));
@@ -137,7 +138,6 @@
             }
         });
     });
-
     $('#refresh').click(function(){ location.reload(); });
 </script>
 
