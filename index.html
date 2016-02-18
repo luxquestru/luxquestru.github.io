@@ -7,17 +7,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <title>Квест Luxoft</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/luxoft.css" rel="stylesheet">
     
@@ -29,139 +25,242 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+      <script type='text/javascript' src='js/jquery.scrollTo-min.js'></script>
+      <script src="js/defines.js"></script>
+      <script src="js/service.js"></script>
+      <script src="js/level.js"></script>
+      <script src="js/authorizer.js"></script>
+      <script src="js/quest.js"></script>
   </head>
 
   <body>
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/index.html"><img src="img/logo_small.png" /></a>
-          
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-         
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="hidden-sm" href="/conditions.html">Условия участия</a></li>
-            <li><a href="/about.html">О компании Luxoft</a></li>
-            <li><a href="/work.html">Работа в Luxoft</a></li>
-            <li><a href="/results.html">Победители</a></li>
-<!--            <li><a href="/signup.html" class="btn btn-primary">Регистрация</a></li>-->
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    <div id="hero_backgr">
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/index.html"><img src="img/logo_small.png" /></a>
 
-    <div class="hero">
-        <div class="container">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a class="hidden-sm" href="/conditions.html">Условия участия</a></li>
+                  <li><a href="/about.html">О компании Luxoft</a></li>
+                  <li><a href="/work.html">Работа в Luxoft</a></li>
+                  <li><a href="/results.html">Победители</a></li>
+                  <!-- user area -->
+                  <li id="header_user" class="dropdown" style="display: none">
+                          <a id="header_user_value" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">proskudin_gorskiy@gmail.com <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                          <!--<li><a href="/question.html">Задание</a></li> -->
+                          <li><a href="#" id="header_user_logout">Выйти</a></li>
+                      </ul>
+                  </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+
+        <div class="hero">
+            <div class="container">
             <div class="row">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">
-                        <div class="hero__content">
-                            <h1>Luxoft Quest</h1>
-                            <p class="lead">Первый квест, созданный компанией Luxoft. Это уникальная возможность для самых талантливых и знающих разработчиков проверить свои знания и потягаться силами друг с другом. Победа ждет только сильнейших в своем деле!</p>
-                            <p class="lead">Регистрация откроется 19 февраля 2016 года</p>
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <div class="hero__content">
+                        <h1>Luxoft Quest</h1>
+                        <p class="lead">Первый квест, созданный компанией Luxoft. Это уникальная возможность для самых талантливых и знающих разработчиков проверить свои знания и потягаться силами друг с другом. Победа ждет только сильнейших в своем деле!</p>
+                        <p class="lead">Регистрация откроется 19 февраля 2016 года</p>
 
-<!--                            <div class="row">
-                                <div class="col-sm-8">
-                                    <a class="btn btn-primary btn-lg btn-block" href="signup.html">Зарегистрироваться</a>
-                                </div>
-                                <div class="col-sm-4">
-                                    <a class="btn btn-ghost btn-lg btn-block" href="login.html">Войти</a>
-                                </div>
+                        <div class="row" id="header_auth">
+                            <div class="col-sm-8">
+                                <a class="btn btn-primary btn-lg btn-block" href="#" id="header_auth_reg">Зарегистрироваться</a>
                             </div>
-   -->                         
-                            <!-- Modal -->
-                            <!--
-                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Регистрация</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                    
-                                    <form>
-                                        <p class="help-block">Вся поля обязательны для заполнения</p>
-                                        <div class="form-group">
-                                            <label for="inputName">Имя и фамилия</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Элон Маск">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Электронная почта</label>
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="elonmusk@luxoft.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword">Пароль</label>
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="мойПароль123">
-                                            <p class="help-block">Не меньше 8 символов латиницей</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputJob">Место работы</label>
-                                            <input type="text" class="form-control" id="inputJob" placeholder="ЗАО «Тесла»">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputSpecial">Специализация</label>
-                                            <input type="text" class="form-control" id="inputSpecia" placeholder="Турбо Паскаль">
-                                            <p class="help-block">Ваша профессия, специализация или язык программирования</p>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                              <input type="checkbox"> Я согласен с условиями участия
-                                            </label>
-                                        </div>
-                                    </form>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Зарегистрироваться</button>
-                                  </div>
-                                </div>
-                              </div>
+                            <div class="col-sm-4">
+                                <a class="btn btn-ghost btn-lg btn-block" href="#" id="header_auth_login">Войти</a>
                             </div>
-                            
-                            
-                            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Войти</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Электронная почта</label>
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="elonmusk@luxoft.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword">Пароль</label>
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="мойПароль123">
-                                            <p class="help-block">Не меньше 8 символов латиницей</p>
-                                        </div>
-                                    </form>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Войти</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            -->
                         </div>
-                        
+
+                        <!-- Start quest -->
+                        <div class="row" id="screen_start" style="display: none">
+                            <div class="col-sm-8 " id="screen_start_scenarios">
+                                    <span class="but-wrp"><a href="#" id="start_screen_scenario" class="btn btn-ghost btn-lg btn-block">Начать квест</a></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
-    
+
+    <div>
+        <div id="TB_overlay" style="display: none;">
+            <!-- Registration -->
+            <div id="popup_reg" class="content" style="display:none; padding-top:70px;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button id="popup_reg_close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Регистрация</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <p class="help-block">Вся поля обязательны для заполнения</p>
+                                <div class="form-group">
+                                    <label for="popup_reg_name">Имя и фамилия</label>
+                                    <input type="text" class="form-control" id="popup_reg_name" placeholder="Элон Маск">
+                                </div>
+                                <div class="form-group">
+                                    <label for="popup_reg_email">Электронная почта</label>
+                                    <input type="email" class="form-control" id="popup_reg_email" placeholder="elonmusk@luxoft.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="popup_reg_pass">Пароль</label>
+                                    <input type="password" class="form-control" id="popup_reg_pass" placeholder="мойПароль123">
+                                    <p class="help-block">Не меньше 8 символов латиницей</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="popup_reg_job">Место работы</label>
+                                    <input type="text" class="form-control" id="popup_reg_job" placeholder="ЗАО «Тесла»">
+                                </div>
+                                <div class="form-group">
+                                    <label for="popup_reg_special">Специализация</label>
+                                    <input type="text" class="form-control" id="popup_reg_special" placeholder="Турбо Паскаль">
+                                    <p class="help-block">Ваша профессия, специализация или язык программирования</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="popup_reg_code">Номер телефона для связи</label>
+                                    <input type="text"  class="form-control" id="popup_reg_phone" placeholder="89871234567" />
+                                    <p class="help-block"><b>Внимание!</b> Через несколько минут, на номер вашего телефона придет код валидации, который следует ввести в форму, которая появится ниже</p>
+                                </div>
+                                <div class="form-group" id="popup_reg_codeblock" style="display: none">
+                                    <label for="popup_reg_code">Номер телефона для связи</label>
+                                    <input type="text"  class="form-control" id="popup_reg_code" placeholder="L-XXXXXX" />
+                                    <p class="help-block">Код проверки телефонного номера</p>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Я согласен с условиями участия</label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="popup_reg_submit" type="button" class="btn btn-primary">Зарегистрироваться</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Authentication -->
+            <div id="popup_auth" class="content" style="display:none; padding-top:70px;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id = "popup_auth_close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Войти</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="popup_auth_login">Электронная почта</label>
+                                    <input type="email" class="form-control" id="popup_auth_login" placeholder="elonmusk@luxoft.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="popup_auth_pass">Пароль</label>
+                                    <input type="password" class="form-control" id="popup_auth_pass" placeholder="???">
+                                    <p class="help-block">Не меньше 8 символов латиницей</p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="popup_auth_submit">Войти</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- game title, picture and text -->
+    <div class="content inner-small" id="screen_game" style="display: none;">
+        <div class="page">
+            <h1 id="screen_game_title"></h1>
+            <div class="navigation">
+                <a class="prev" href="#">&nbsp;</a>
+                <ul class="nuclear" id="screen_game_thumblist"></ul>
+            </div>
+            <div class="notice" id="fileTaskNotice" style="display: none;">
+                <span>Для того чтобы пройти задание, вам необходимо написать программу на одном из разрешенных <a href="rules.html" target="blank">языков программирования</a> и загрузить ее на сервер</span>
+                <a href="#" class="cloze">&nbsp;</a>
+            </div>
+            <div class="bigpic" id="comics"></div>
+            <div class="cnt-item">
+                <div class="question">
+                    <div class="question-in" id="levelText">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- quiz task placeholder -->
+    <div class="content inner" id="quizTask" style="display: none;"></div>
+
+    <!-- text task -->
+    <div class="content inner" id="textTask" style="display: none;">
+        <div class="page">
+            <div class="your-answer">
+                <h2>Ваш ответ</h2>
+                <input type="text" class="area" value=""/>
+            </div>
+        </div>
+    </div>
+
+    <!-- file task -->
+    <div class="content inner" id="fileTask" style="display: none;">
+        <div class="page">
+            <div class="file-place" id="dropper">
+                <img src="img/ico.jpg" alt="" />
+                <a id="pickfiles" href="#">Выберите файл</a><span id="dragdropText"> или перетащите сюда</span>
+                <div id="filelist"><b>Fileuploader corrupted</b></div>
+            </div>
+            <div class="progress-bar" id="progressbar">
+                <div class="progress-l">
+                    <div class="progress-r nuclear">
+                        <div class="progress" id="bar"></div>
+                        <div class="progressLabel" id="progressLabel"></div>
+                    </div>
+                </div>
+            </div>
+            <textarea cols="10" rows="10" class="area-box" id="output"></textarea>
+        </div>
+    </div>
+
+    <!-- next button -->
+    <div class="content inner-small inner-paddingfix" id="nextButtonBlock" style="display: none;">
+        <div class="page">
+            <div class="notice" id="nextNotice" style="display: none;"><span></span><a href="#" class="cloze">&nbsp;</a></div>
+            <div class="next next-pad nuclear">
+                <a href="#" id="nextButton">Далее</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var app = new QuestApplication(document);
+        var authorizer = new Authorizer(document, app);
+        authorizer.isAuthorized();
+    </script>
+
 
 
     <!-- Bootstrap core JavaScript
