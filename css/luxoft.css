@@ -45,6 +45,30 @@ html {
     padding-top: 15px;
      background-color: #fff;
 }
+.file-place{
+    position: relative;
+    color: #555861;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    z-index: 10;
+    padding: 10px 0 16px 0;
+    text-align: center;
+    border: 2px dashed #646873;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #2B2E37;
+    behavior: url(js/PIE.htc);
+    line-height: 30px;
+    margin: 0 0 10px 0;
+}
+
+.file-place img{
+    margin: 0 15px 0 0;
+    position: relative;
+    top: 8px;
+}
 
 #navbar > ul > li:nth-child(5) > a {
     color: #fff;

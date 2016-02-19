@@ -33,6 +33,7 @@ var Authorizer = function (doc, app) {
 	this.phone = '';
 	this.specialization = '';
 	this.workplace = '';
+    this.gamePage = false;
 
 	this.store = function(sid) {
 		console.log('Authorizer.store: sid=' + sid);
@@ -65,6 +66,9 @@ var Authorizer = function (doc, app) {
 			if (data.ErrorCode == 0) {
 				this.login = data.Message.login;
 				this.store(getCookie('sid'));
+                if(this.gamePage) {
+                    this.app.startScenario();
+                }
 				return;
 			}
 		}
@@ -113,8 +117,8 @@ var Authorizer = function (doc, app) {
 			if (data.ErrorCode == 0 && data.Message) {
 				if (data.Message.sid) {
                     this.store(data.Message.sid);
-                    window.location = "./index.html"
-                    // window.location = "./question.html"
+                    // window.location = "./index.html"
+                    window.location = "./question.html"
 				} else {
 					alert(data.Message);
 				}
@@ -170,8 +174,8 @@ var Authorizer = function (doc, app) {
 						if (data.Message.sid) {
 							alert('Успешная регистрация');
 							this.store(data.Message.sid);
-                            window.location = "./index.html"
-                            // window.location = "./question.html"
+                            // window.location = "./index.html"
+                             window.location = "./question.html"
 						} else {
 							alert(data.Message);
 						}

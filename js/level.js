@@ -563,7 +563,7 @@ var FileLevel = Level.extend({
 		this.file = files[0];
 
 		this.updateState(FILE_STATE.selected);
-		$.scrollTo(this.ui.nextButton, 800);
+		$(this.ui.nextButton).scrollTo(800);
 		this.ui.fileList.innerHTML = '<div id="' + this.file.id + '">' + this.file.name + '</div>';
 		this.ui.fileList.style.display = 'block';
 		up.refresh();
@@ -659,7 +659,7 @@ var FileLevel = Level.extend({
 				}
 			}
 
-			$.scrollTo(this.ui.nextNotice, 800);
+			$(this.ui.nextNotice).scrollTo(800);
 		}
 	}
 });
