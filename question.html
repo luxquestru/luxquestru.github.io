@@ -74,90 +74,18 @@
     <div class="content" style="padding-top:70px;">
         <div class="container">
             <div class="row">
-                   
-                    <!--Temporary --
-                    <div class="col-lg-offset-2 col-lg-8">
-                        <h1>Задания</h1>
-                        <p class="text-center">Благодарим за регистрацию. Задания будут доступны с 20 февраля.</p>
-                    </div>
-                   <!--/Temporary -->
-                    
-                    <!--Default-->
-                    <div class="col-lg-offset-2 col-lg-8">
-                        <h1>Задания</h1>
-                    </div>
-                   <!--
-                    <div class="col-sm-5 balls hidden-xs">
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
 
-                        </div> 
-                           <div class="col-sm-2">
-                            <h2 class="text-center black">8/12</h2>
-                        </div> 
-                            <div class="col-sm-5 balls hidden-xs">
-                            <div class="empty pull-left"></div>
-                            <div class="empty pull-left"></div>
-                            <div class="empty pull-left"></div>
-                            <div class="empty pull-left"></div>
-                    </div> 
-                    --
-                    
-                    <div class="col-lg-offset-2 col-lg-8">
-                        <img class="img-responsive center-block" src="img/placeholder.jpg" />
-                        <p>Текст задания. Первый квест Luxoft по спортивному программированию – это отличная возможность для самых талантливых разработчиков проверить свои знания и помериться силами друг с другом. Пусть победит сильнейший!</p>
-                       <!-- <form>
-                           
-                            <div class="form-group">
-                                <input type="file" >
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-lg" type="submit">Отправить на проверку</button>
-                            </div>
-                        </form>
-
-                    </div>
-
-                    
-                    
-
-                    <div class="col-lg-offset-2 col-lg-8">
-                        <h1>Задания</h1>
-                    </div>
-                    <!-- Progress--
-                    <div class="col-sm-5 balls hidden-xs">
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-                            <div class="gold pull-right"></div>
-
-                        </div> 
-                           <div class="col-sm-2">
-                            <h2 class="text-center black">8/12</h2>
-                        </div> 
-                            <div class="col-sm-5 balls hidden-xs">
-                            <div class="empty pull-left"></div>
-                            <div class="empty pull-left"></div>
-                            <div class="empty pull-left"></div>
-                            <div class="empty pull-left"></div>
-                    </div>
-                    -->
+                <!--Default-->
+                <div class="col-lg-offset-2 col-lg-8">
+                    <h1>Задания</h1>
+                </div>
 
                 <!-- game title, picture and text -->
-                <div class="content inner-small" id="screen_game" style="display: none">
+                <div class="col-lg-offset-2 col-lg-8" id="screen_game" style="display: none">
                     <div class="page">
                         <h1 id="screen_game_title"></h1>
                         <div class="notice" id="fileTaskNotice" style="display: none;">
                             <span>Для того чтобы пройти задание, вам необходимо написать программу на одном из разрешенных <a href="rules.html" target="blank">языков программирования</a> и загрузить ее на сервер</span>
-                            <a href="#" class="cloze">&nbsp;</a>
                         </div>
                         <div class="bigpic" id="comics"></div>
                         <div class="cnt-item">
@@ -170,10 +98,10 @@
                 </div>
 
                 <!-- quiz task placeholder -->
-                <div class="content inner" id="quizTask" style="display: none"></div>
+                <div class="col-lg-offset-2 col-lg-8" id="quizTask" style="display: none"></div>
 
                 <!-- text task -->
-                <div class="content inner" id="textTask" style="display: none">
+                <div class="col-lg-offset-2 col-lg-8" id="textTask" style="display: none">
                     <div class="page">
                         <div class="your-answer">
                             <h2>Ваш ответ</h2>
@@ -183,7 +111,7 @@
                 </div>
 
                 <!-- file task -->
-                <div class="content inner" id="fileTask" style="display: none">
+                <div class="col-lg-offset-2 col-lg-8" id="fileTask" style="display: none">
                     <div class="page">
                         <div class="file-place" id="dropper">
                             <img src="img/upload.png" alt="" />
@@ -198,13 +126,13 @@
                                 </div>
                             </div>
                         </div>
-                        <textarea cols="10" rows="10" class="area-box" id="output"></textarea>
+                        <textarea cols="99" rows="10" class="area-box" id="output"></textarea>
                     </div>
                 </div>
 
                 <!-- next button -->
-                <div class="content inner-small inner-paddingfix" id="nextButtonBlock" style="display: none">
-                    <div class="page">
+                <div class="col-lg-offset-2 col-lg-8" id="nextButtonBlock" style="display: none">
+                    <div class="page" style="margin: auto;">
                         <div class="notice" id="nextNotice" style="display: none;"><span></span><a href="#" class="cloze">&nbsp;</a></div>
                         <div class="next next-pad nuclear">
                             <a href="#" id="nextButton" class="btn btn-primary btn-lg">Далее</a>
