@@ -67,6 +67,7 @@ var QUEST_ELEMENT_ID = {
 	headerUserAreaId:    'header_user_area',
 	headerLoginId:       'header_auth_login',
 	headerRegisterId:    'header_auth_reg',
+	headerRegisterButtonId: 'header_auth_reg_button',
 	headerLogoutId:      'header_user_logout'
 };
 

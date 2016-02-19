@@ -48,11 +48,17 @@ var QuestApplication = function (doc) {
 	};
 
 	this.updateUI = function() {
-		this.ui.startScreen.style.display = /*this.state == QUEST_STATE.authorization ||*/
-			this.state == QUEST_STATE.scenarioSelection ? 'block' : 'none';
-		this.ui.scenarios.style.display  = this.state == QUEST_STATE.authorization || this.state == QUEST_STATE.scenarioSelection ? 'block' : 'none';
-		this.ui.gameScreen.style.display = this.state == QUEST_STATE.playing ? 'block' : 'none';
-		this.ui.nextButtonBlock.style.display = this.state == QUEST_STATE.playing ? 'block' : 'none';
+		/*this.ui.startScreen.style.display = this.state == QUEST_STATE.authorization ||
+			this.state == QUEST_STATE.scenarioSelection ? 'block' : 'none';*/
+		if(this.ui.scenarios != null) {
+			this.ui.scenarios.style.display = this.state == QUEST_STATE.authorization || this.state == QUEST_STATE.scenarioSelection ? 'block' : 'none';
+		}
+		if(this.ui.gameScreen != null) {
+			this.ui.gameScreen.style.display = this.state == QUEST_STATE.playing ? 'block' : 'none';
+		}
+		if(this.ui.nextButtonBlock != null) {
+			this.ui.nextButtonBlock.style.display = this.state == QUEST_STATE.playing ? 'block' : 'none';
+		}
 	};
 
 	this.setState = function(state) {
@@ -236,9 +242,9 @@ var QuestApplication = function (doc) {
 	this.ui.scenarios       = doc.getElementById(QUEST_ELEMENT_ID.scenariosId);
 	this.ui.levelHistory    = doc.getElementById(QUEST_ELEMENT_ID.levelHistoryListId);
 
-	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.scenarioId), 'click', createListenerFunction(this.scenarioITClick, this));
-	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.noticeFileTaskId),  'click', createListenerFunction(this.closeNotice, this));
-	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.noticeNextId),      'click', createListenerFunction(this.closeNotice, this));
+	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.scenarioId),       'click', createListenerFunction(this.scenarioITClick, this));
+	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.noticeFileTaskId), 'click', createListenerFunction(this.closeNotice, this));
+	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.noticeNextId),     'click', createListenerFunction(this.closeNotice, this));
 
 	this.levelFactory = new LevelFactory(this);
 	this.updateUI();

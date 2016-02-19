@@ -49,15 +49,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/index.html"><img src="img/logo_small.png" /></a>
+              <a class="navbar-brand" href="./index.html"><img src="img/logo_small.png" /></a>
 
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
-                  <li><a class="hidden-sm" href="/conditions.html">Условия участия</a></li>
-                  <li><a href="/about.html">О компании Luxoft</a></li>
-                  <li><a href="/work.html">Работа в Luxoft</a></li>
-                  <li><a href="/results.html">Победители</a></li>
+                  <li><a class="hidden-sm" href="./conditions.html">Условия участия</a></li>
+                  <li><a href="./about.html">О компании Luxoft</a></li>
+                  <li><a href="./work.html">Работа в Luxoft</a></li>
+                  <li><a href="./results.html">Победители</a></li>
                   <!-- user area -->
                   <li id="header_user" class="dropdown" style="display: none">
                           <a id="header_user_value" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">proskudin_gorskiy@gmail.com <span class="caret"></span></a>
@@ -66,6 +66,7 @@
                           <li><a href="#" id="header_user_logout">Выйти</a></li>
                       </ul>
                   </li>
+                  <li id="header_auth_reg"><a href="./signup.html">Регистрация</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
@@ -83,10 +84,10 @@
 
                         <div class="row" id="header_auth">
                             <div class="col-sm-8">
-                                <a class="btn btn-primary btn-lg btn-block" href="#" id="header_auth_reg">Зарегистрироваться</a>
+                                <a class="btn btn-primary btn-lg btn-block" href="./signup.html" id="header_auth_reg_button" style="display: none">Зарегистрироваться</a>
                             </div>
                             <div class="col-sm-4">
-                                <a class="btn btn-ghost btn-lg btn-block" href="#" id="header_auth_login">Войти</a>
+                                <a class="btn btn-ghost btn-lg btn-block" href="./login.html" id="header_auth_login" style="display: none">Войти</a>
                             </div>
                         </div>
 
@@ -96,94 +97,6 @@
                             <div class="col-sm-8 " id="screen_start_scenarios" >
                                     <span class="but-wrp" style="display: none"><a href="#" id="start_screen_scenario" class="btn btn-ghost btn-lg btn-block">Начать квест</a></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <div id="TB_overlay" style="display: none;">
-            <!-- Registration -->
-            <div id="popup_reg" class="content" style="display:none; padding-top:70px;">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button id="popup_reg_close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Регистрация</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <p class="help-block">Вся поля обязательны для заполнения</p>
-                                <div class="form-group">
-                                    <label for="popup_reg_name">Имя и фамилия</label>
-                                    <input type="text" class="form-control" id="popup_reg_name" placeholder="Элон Маск">
-                                </div>
-                                <div class="form-group">
-                                    <label for="popup_reg_email">Электронная почта</label>
-                                    <input type="email" class="form-control" id="popup_reg_email" placeholder="elonmusk@luxoft.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="popup_reg_pass">Пароль</label>
-                                    <input type="password" class="form-control" id="popup_reg_pass" placeholder="мойПароль123">
-                                    <p class="help-block">Не меньше 8 символов латиницей</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="popup_reg_job">Место работы</label>
-                                    <input type="text" class="form-control" id="popup_reg_job" placeholder="ЗАО «Тесла»">
-                                </div>
-                                <div class="form-group">
-                                    <label for="popup_reg_special">Специализация</label>
-                                    <input type="text" class="form-control" id="popup_reg_special" placeholder="Турбо Паскаль">
-                                    <p class="help-block">Ваша профессия, специализация или язык программирования</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="popup_reg_code">Номер телефона для связи</label>
-                                    <input type="text"  class="form-control" id="popup_reg_phone" placeholder="89871234567" />
-                                    <p class="help-block"><b>Внимание!</b> Через несколько минут, на номер вашего телефона придет код валидации, который следует ввести в форму, которая появится ниже</p>
-                                </div>
-                                <div class="form-group" id="popup_reg_codeblock" style="display: none">
-                                    <label for="popup_reg_code">Номер телефона для связи</label>
-                                    <input type="text"  class="form-control" id="popup_reg_code" placeholder="L-XXXXXX" />
-                                    <p class="help-block">Код проверки телефонного номера</p>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Я согласен с условиями участия</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button id="popup_reg_submit" type="button" class="btn btn-primary">Зарегистрироваться</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Authentication -->
-            <div id="popup_auth" class="content" style="display:none; padding-top:70px;">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id = "popup_auth_close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Войти</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="popup_auth_login">Электронная почта</label>
-                                    <input type="email" class="form-control" id="popup_auth_login" placeholder="elonmusk@luxoft.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="popup_auth_pass">Пароль</label>
-                                    <input type="password" class="form-control" id="popup_auth_pass" placeholder="???">
-                                    <p class="help-block">Не меньше 8 символов латиницей</p>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="popup_auth_submit">Войти</button>
                         </div>
                     </div>
                 </div>

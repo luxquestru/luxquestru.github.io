@@ -35,15 +35,16 @@ var Authorizer = function (doc, app) {
 	this.workplace = '';
 
 	this.store = function(sid) {
-		//console.log('Authorizer.store: sid=' + sid);
+		console.log('Authorizer.store: sid=' + sid);
 		this.sid = sid;
 		if (sid) setCookie('sid', sid);
 		else deleteCookie('sid');
-		this.ui.headerAuth.style.display = sid ? 'none' : 'block';
-		this.ui.headerUser.style.display = sid ? 'block' : 'none';
-        this.ui.headerLogin.style.display = sid ? 'none' : 'block';
-        this.ui.headerRegister.style.display = sid ? 'none' : 'block';
-		this.ui.headerUserValue.innerHTML = this.login;
+		if(this.ui.headerAuth != null)  this.ui.headerAuth.style.display = sid ? 'none' : 'block';
+		if(this.ui.headerUser != null)  this.ui.headerUser.style.display = sid ? 'block' : 'none';
+        if(this.ui.headerLogin != null) this.ui.headerLogin.style.display = sid ? 'none' : 'block';
+        if(this.ui.headerRegister != null)   this.ui.headerRegister.style.display = sid ? 'none' : 'block';
+        if(this.ui.headerRegisterButton != null)   this.ui.headerRegisterButton.style.display = sid ? 'none' : 'block';
+        if(this.ui.headerUserValue != null) this.ui.headerUserValue.innerHTML = this.login;
 		if (this.app) this.app.setSID(this.sid);
 	};
 
@@ -55,6 +56,7 @@ var Authorizer = function (doc, app) {
 			$.getJSON(WEB_SESSION_VERIFY, {sid: sid}, createListenerFunction(this.verifySessionListener, this));
 		} else {
 			this.ui.headerAuth.style.display = 'block';
+            this.store(null);
 		}
 	};
 
@@ -66,10 +68,8 @@ var Authorizer = function (doc, app) {
 				return;
 			}
 		}
-
 		this.sid = 0;
-		this.ui.headerAuth.style.display = 'block';
-        setCookie('sid', null);
+		setCookie('sid', null);
 	};
 
 	this.authorizeOrRegister = function() {
@@ -112,11 +112,9 @@ var Authorizer = function (doc, app) {
 		if (textStatus == 'success') {
 			if (data.ErrorCode == 0 && data.Message) {
 				if (data.Message.sid) {
-					this.closeAuthPopup();
-					this.store(data.Message.sid);
-                    this.ui.startScreen.style.display = 'block';
-                    this.ui.headerLogin.style.display = 'none';
-                     this.ui.headerRegister.style.display = 'none';
+                    this.store(data.Message.sid);
+                    window.location = "./index.html"
+                    // window.location = "./question.html"
 				} else {
 					alert(data.Message);
 				}
@@ -171,11 +169,9 @@ var Authorizer = function (doc, app) {
 					if (data.Message) {
 						if (data.Message.sid) {
 							alert('Успешная регистрация');
-							this.closeRegPopup();
 							this.store(data.Message.sid);
-                            this.ui.startScreen.style.display = 'block';
-                            this.ui.headerLogin.style.display = 'none';
-                            this.ui.headerRegister.style.display = 'none';
+                            window.location = "./index.html"
+                            // window.location = "./question.html"
 						} else {
 							alert(data.Message);
 						}
@@ -235,7 +231,9 @@ var Authorizer = function (doc, app) {
 
     this.ui.heroArea          = doc.getElementById(QUEST_ELEMENT_ID.heroArea);
     this.ui.headerLogin       = doc.getElementById(QUEST_ELEMENT_ID.headerLoginId);
+    this.ui.headerLogout      = doc.getElementById(QUEST_ELEMENT_ID.headerLogoutId);
     this.ui.headerRegister    = doc.getElementById(QUEST_ELEMENT_ID.headerRegisterId);
+    this.ui.headerRegisterButton = doc.getElementById(QUEST_ELEMENT_ID.headerRegisterButtonId);
 	this.ui.popupReg          = doc.getElementById(QUEST_ELEMENT_ID.popupRegId);
 	this.ui.popupRegName      = doc.getElementById(QUEST_ELEMENT_ID.popupRegNameId);
 	this.ui.popupRegEmail     = doc.getElementById(QUEST_ELEMENT_ID.popupRegEmailId);
@@ -249,15 +247,15 @@ var Authorizer = function (doc, app) {
 	this.ui.popupRegSubmit    = doc.getElementById(QUEST_ELEMENT_ID.popupRegSubmitId);
 	this.ui.headerAuth        = doc.getElementById(QUEST_ELEMENT_ID.headerAuthBlockId);
 	this.ui.headerUser        = doc.getElementById(QUEST_ELEMENT_ID.headerUserBlockId);
-    this.ui.headerUserValue    = doc.getElementById(QUEST_ELEMENT_ID.headerUserValue);
+    this.ui.headerUserValue   = doc.getElementById(QUEST_ELEMENT_ID.headerUserValue);
 
     this.ui.startScreen       = doc.getElementById(QUEST_ELEMENT_ID.startScreenId);
 
-	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.headerLoginId), 'click', createListenerFunction(this.authorize, this));
-	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.headerRegisterId), 'click', createListenerFunction(this.register, this));
-	bindEvent(doc.getElementById(QUEST_ELEMENT_ID.headerLogoutId), 'click', createListenerFunction(this.logout, this));
+	//bindEvent(this.ui.headerLogin,    'click', createListenerFunction(this.authorize, this));
+	bindEvent(this.ui.headerRegister, 'click', createListenerFunction(this.register, this));
+	bindEvent(this.ui.headerLogout,   'click', createListenerFunction(this.logout, this));
 	bindEvent(this.ui.popupAuthClose, 'click', createListenerFunction(this.closeAuthPopup, this));
 	bindEvent(this.ui.popupRegClose,  'click', createListenerFunction(this.closeRegPopup, this));
-	bindEvent(this.ui.popupAuthSubmit, 'click', createListenerFunction(this.submitAuth, this));
-	bindEvent(this.ui.popupRegSubmit,  'click', createListenerFunction(this.submitReg, this));
+	bindEvent(this.ui.popupAuthSubmit,'click', createListenerFunction(this.submitAuth, this));
+	bindEvent(this.ui.popupRegSubmit, 'click', createListenerFunction(this.submitReg, this));
 };
