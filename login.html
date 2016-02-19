@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <title>Квест Luxoft</title>
 
@@ -29,6 +29,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+      <script type='text/javascript' src='js/jquery.scrollTo-min.js'></script>
+      <script src="js/defines.js"></script>
+      <script src="js/service.js"></script>
+      <script src="js/level.js"></script>
+      <script src="js/authorizer.js"></script>
+      <script src="js/quest.js"></script>
   </head>
 
   <body style="background-image: none;">
@@ -42,18 +51,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/index.html"><img src="img/logo_small.png" /></a>
+          <a class="navbar-brand" href="./index.html"><img src="img/logo_small.png" /></a>
           
         </div>
         <div id="navbar" class="navbar-collapse collapse">
          
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/conditions.html">Условия участия</a></li>
-            <li><a href="/about.html">О компании Luxoft</a></li>
-            <li><a href="/work.html">Работа в Luxoft</a></li>
-            <li><a href="/results.html">Победители</a></li>
-<!--            <li><a href="/signup.html" class="btn btn-primary">Регистрация</a></li> ->
-            
+            <li><a href="./conditions.html">Условия участия</a></li>
+            <li><a href="./about.html">О компании Luxoft</a></li>
+            <li><a href="./work.html">Работа в Luxoft</a></li>
+            <li><a href="./results.html">Победители</a></li>
+
+            <!-- user area -->
+            <li id="header_user" class="dropdown" style="display: none">
+                <a id="header_user_value" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">proskudin_gorskiy@gmail.com <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <!--<li><a href="/question.html">Задание</a></li> -->
+                    <li><a href="#" id="header_user_logout">Выйти</a></li>
+                </ul>
+            </li>
+            <li><a href="./signup.html">Регистрация</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -65,26 +82,29 @@
                     <h1>Вход</h1>
                         <p class="help-block">Ещё не зарегистрированы? <a href="signup.html">Присоединиться</a></p>
                         <form>
-                                <div class="form-group">
-                                    <label for="inputEmail">Электронная почта</label>
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="elonmusk@luxoft.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword">Пароль</label>
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="мойПароль123">
-                                    <p class="help-block">Не меньше 8 символов латиницей</p>
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn btn-primary btn-lg">Войти</button>    
-                                </div>  
+                            <div class="form-group">
+                                <label for="popup_auth_login">Электронная почта</label>
+                                <input type="email" class="form-control" id="popup_auth_login" placeholder="elonmusk@luxoft.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="popup_auth_pass">Пароль</label>
+                                <input type="password" class="form-control" id="popup_auth_pass" placeholder="???">
+                                <p class="help-block">Не меньше 8 символов латиницей</p>
+                            </div>
+                            <div class="form-group">
+                                <button id="popup_auth_submit" type="button" class="btn btn-primary btn-lg">Войти</button>
+                            </div>
                         </form>   
                 </div>   
             </div>
         </div>
     </div>
-        
-   
-    
+
+    <script type="text/javascript">
+        var app = new QuestApplication(document);
+        var authorizer = new Authorizer(document, app);
+        authorizer.isAuthorized();
+    </script>
 
 
     <!-- Bootstrap core JavaScript

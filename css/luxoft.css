@@ -8,14 +8,24 @@ html {
 
 
 /*navbar-fixed-top.css*/
-body {
+#hero_backgr {
     padding-top: 70px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
     font-family: 'Open Sans', sans-serif;
     background: url(../img/main_bg.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+#TB_overlay {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    margin: 0 -25% 0 -25%;
 }
 
 /* Menu Menu Menu Menu Menu Menu*/
@@ -40,7 +50,13 @@ body {
     color: #fff;
 }
 
+#navbar > ul > li.dropdown > a {
+    color: #000;
+}
 
+#navbar > ul > li.dropdown.open > a {
+     background-color: #fff;
+}
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: rgb(254, 165, 48);
@@ -65,6 +81,11 @@ h2{
     color: #993399;
     font-weight: 300;
     text-align: center;
+}
+
+.black{
+    color: #000;
+    margin-top: 0px;
 }
 p {
     font-size: 16px;
@@ -133,6 +154,7 @@ a {
     background-image: -ms-linear-gradient(top, #ffbc35, #ff9933);
     background-image: -o-linear-gradient(top, #ffbc35, #ff9933);
     background-image: linear-gradient(to bottom, #ffbc35, #ff9933);
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .btn-primary:hover {
@@ -141,7 +163,8 @@ background-image: -moz-linear-gradient(top, #ff9933, #ffbc35);
 background-image: -ms-linear-gradient(top, #ff9933, #ffbc35);
   background-image: -o-linear-gradient(top, #ff9933, #ffbc35);
   background-image: linear-gradient(to bottom, #ff9933, #ffbc35);
-  text-decoration: none;   
+  text-decoration: none;
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .btn-ghost {
@@ -183,6 +206,12 @@ ol {
     line-height: 1,5;
 }
 
+.standart{
+    font-size: 16px;
+    line-height: 1,5;
+}
+
+
 .code {
     font-size: 21px;
     line-height: 1,5;
@@ -193,3 +222,39 @@ ol {
     padding: 30px 0;
    background: #f4f4f4; 
 }   
+
+
+.balls {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.gold {
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: #F4A71C;
+    background-image: -webkit-linear-gradient(top, #F4A71C, #AF6D28);
+    background-image: -moz-linear-gradient(top, #F4A71C, #AF6D28);
+    background-image: -ms-linear-gradient(top, #F4A71C, #AF6D28);
+    background-image: -o-linear-gradient(top, #F4A71C, #AF6D28);
+    background-image: linear-gradient(to bottom, #F4A71C, #AF6D28);
+    margin:5px;
+       
+    }
+
+.empty {
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin:5px;
+}
+
+.progress-bar-warning {
+    background-color: #ffbc35;
+}

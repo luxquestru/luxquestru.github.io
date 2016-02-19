@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Admin console</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+    .shutdown-btn {}
+    .resetvm-btn {}
+</style>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="">***</a>
+            <ul class="nav">
+                <li><a href="http://www.luxquest.org/">Luxquest</a></li>
+                <li><a href="http://cc.activecloud.com/client/">Active Cloud VMs</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                <li class="dropdown">
+                    <a data-toggle="modal" id="refresh">Обновить</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="hero-unit">
+    <h1>Admin panel</h1>
+    <p>Please choose VM to control and make some action</p>
+</div>
+<div class="container">
+    <table id="table" class="table">
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+
+    function setVMButtonState(vm, state)
+    {
+        $('.btn').each(function(i, value){
+            var that = $(value);
+            if(that.data('machine') === vm)
+            {
+                that.text(state);
+            }
+        });
+    }
+
+    function onLoadedSetupEvents()
+    {
+        $('.shutdown-btn').click(function(){
+            var that = $(this);
+            if(that.text() === "Shutdown")
+            {
+                $.ajax({
+                    type: "GET",
+                    url: "http://83.166.241.9:8080/Service.svc/ICoreService/ControlRSStop",
+                    dataType: "json",
+                    timeout:5000
+                });
+                setVMButtonState(that.data('machine'), "Start");
+            } else {
+                $.ajax({
+                    type: "GET",
+                    url: "http://83.166.241.9:8080/Service.svc/ICoreService/ControlRSStart",
+                    dataType: "json",
+                    timeout:5000
+                });
+                setVMButtonState(that.data('machine'), "Shutdown");
+            }
+        });
+    }
+
+    function generateInnerTable(json)
+    {
+        var html = "";
+
+        html += "<table class='table'><tbody>";
+        for(var i=0; i<json.length;i++)
+        {
+            var vm = json[i];
+            var txt = "<tr>" +
+                "<td><span class='icon-play'></span></td>"+
+                "<td><B>"+vm.Name+"</B></td>"+
+                "<td>"+vm.State+"</td>"+
+                "<td>"+vm.Id+"</td>"+
+                "<td><a class='btn btn-primary btn-large resetvm-btn' data-vm='"+vm.Id+"'>Reset state</a></td>"+
+                "</tr>";
+            html += txt;
+        }
+        html += "</tbody></table>";
+        return html;
+    }
+    function generateOuterTable(json)
+    {
+        return "<tr>"+
+            "<td>"+
+                "<h2>" + json.Response.ServerName + "</h2><br>"+
+                "P: "  + json.Response.ServerState.Cpu + "%<br>" +
+                "M: "  + json.Response.ServerState.Memory + "Mb<br>" +
+                "<a id='' class='btn btn-danger btn-large shutdown-btn' data-machine='"+json.Response.ServerName+"'>Shutdown</a>" +
+            "</td>" +
+            "<td>"+
+                generateInnerTable(json.Response.VirtualMachines) +
+            "</td>" +
+         "</tr>";
+    }
+
+    $(function(){
+        $.ajax({
+            type: "GET",
+            url: "http://83.166.241.9:8080/Service.svc/ICoreService/GetState",
+            dataType: "json",
+            crossDomain: true,
+            timeout:5000,
+            success: function(data) {
+                $('#table tbody').html(generateOuterTable(data));
+
+                if(data.Response.ServerState.PoolState === "Paused")
+                {
+                    $('.icon-play').removeClass('icon-play').addClass('icon-pause');
+                    setVMButtonState('TOSHIBA'/*TODO*/, "Start");
+                } else {
+                    $('.icon-pause').removeClass('icon-pause').addClass('icon-play');
+                }
+
+                onLoadedSetupEvents();
+            },
+            error: function() {
+            }
+        });
+    });
+    $('#refresh').click(function(){ location.reload(); });
+</script>
+
+</body>
+</html>
