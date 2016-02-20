@@ -125,7 +125,7 @@ var QUIZ_QUESTION_TEMPLATE = '			<div class="cnt-item">\
 	</div>\
 	<div class="inner-small">&nbsp;</div>';
 
-var QUIZ_OPTION_TEMPLATE = '<li><label><input type="{!type!}" name="{!name!}" value="{!value!}">{!title!}</label></li>';
+var QUIZ_OPTION_TEMPLATE = '<li><label><input type="{!type!}" name="{!name!}" value="{!value!}"><span>{!title!}</span></label></li>';
 
 var FILE_TASK_NOTICES = {};
 FILE_TASK_NOTICES[FILE_STATE.complete] = 'Поздравляем, программа отработала правильно. Можете переходить к следующему уровню.';

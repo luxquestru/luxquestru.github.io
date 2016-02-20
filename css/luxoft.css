@@ -27,6 +27,35 @@ textarea {
     background: url(../img/area.png) left top no-repeat;
 }
 
+.question-in {
+    font-size: 11pt;
+    border-color: #eeeeee;
+    border-left-color: #bbb;
+    border-left-style: solid;
+    border-left-width: thin;
+    background-color: #fafafa;
+    padding: 10px;
+}
+
+.answer li {
+    list-style: none;
+}
+
+.answer span {
+    margin-left: 15px;
+}
+
+.question-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 12pt;
+}
+
+.answer label {
+    font-size: 11pt;
+    font-style: normal;
+    font-weight: 200;
+}
 
 /*navbar-fixed-top.css*/
 #hero_backgr {
@@ -89,46 +118,6 @@ textarea {
     margin: 0 15px 0 0;
     position: relative;
     top: 8px;
-}
-
-.progress-bar{
-    background: url(../img/pr-m.jpg) left top repeat-x;
-}
-
-.progress-l{
-    background: url(../img/pr-l.jpg) left top no-repeat;
-}
-
-.progress-r{
-    background: url(../img/pr-r.jpg) right top no-repeat;
-    height: 37px;
-    padding: 5px 5px 0 5px;
-}
-
-.progress{
-    float: left;
-    position: relative;
-    z-index: 10;
-    width: 35%;
-    height: 30px;
-    background: url(../img/pr.jpg) left top repeat-x;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    behavior: url(js/PIE.htc);
-}
-
-.progressLabel{
-    font-size: 16px;
-    font-weight: bold;
-    height: 30px;
-    left: 0;
-    padding: 5px 0 0;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    z-index: 100;
-    text-shadow: 0px 0px 3px #fff;
 }
 
 #navbar > ul > li:nth-child(5) > a {

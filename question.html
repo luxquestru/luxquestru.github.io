@@ -90,7 +90,7 @@
                         <div class="bigpic" id="comics"></div>
                         <div class="cnt-item">
                             <div class="question">
-                                <div class="question-in" id="levelText">
+                                <div class="question-title" id="levelText">
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,8 @@
                     <div class="page">
                         <div class="your-answer">
                             <h2>Ваш ответ</h2>
-                            <input type="text" class="area" value=""/>
+                            <input type="text" class="form-control" value=""/>
+                            <br/>
                         </div>
                     </div>
                 </div>
@@ -118,7 +119,7 @@
                             <a id="pickfiles" href="#">Выберите файл</a><span id="dragdropText"> или перетащите сюда</span>
                             <div id="filelist"><b>Fileuploader corrupted</b></div>
                         </div>
-                        <div class="progress-bar" id="progressbar">
+<!--                        <div class="progress-bar" id="progressbar">
                             <div class="progress-l">
                                 <div class="progress-r nuclear">
                                     <div class="progress" id="bar"></div>
@@ -126,6 +127,19 @@
                                 </div>
                             </div>
                         </div>
+-->
+                        <!-- Progress -->
+                        <div class="col-lg-offset-2 col-lg-8">
+
+                            <div class="progress" id="progressbar">
+                                <div id="bar" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                            <p>Процесс проверки: <span id="progressLabel" ></span></p>
+
+                        </div>
+                        <!-- /Progress -->
                         <textarea cols="99" rows="10" class="area-box" id="output"></textarea>
                     </div>
                 </div>
@@ -139,18 +153,6 @@
                         </div>
                     </div>
                 </div>
-                <!--
-                <div class="col-lg-offset-2 col-lg-8">
-                       
-                        <div class="progress">
-                          <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                            <span class="sr-only">60% Complete (warning)</span>
-                          </div>
-                        </div>
-                        <p>Процесс проверки</p>
-                    
-                    </div>
-                    <!-- /Progress-->
             </div>
         </div>
     </div>
