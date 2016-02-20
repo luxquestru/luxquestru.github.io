@@ -63,20 +63,18 @@ var Authorizer = function (doc, app) {
 	};
 
 	this.verifySessionListener = function(data, textStatus) {
-		if (textStatus == 'success') {
-			if (data.ErrorCode == 0) {
-				this.login = data.Message.login;
-                if(data.Message.name && data.Message.name.length) {
-                    this.name = data.Message.name;
-                } else {
-                    this.name = this.login;
-                }
-				this.store(getCookie('sid'));
-                if(this.gamePage) {
-                    this.app.startScenario();
-                }
-				return;
-			}
+		if ((textStatus == 'success') && (data.ErrorCode == 0)) {
+            this.login = data.Message.login;
+            if(data.Message.name && data.Message.name.length) {
+                this.name = data.Message.name;
+            } else {
+                this.name = this.login;
+            }
+            this.store(getCookie('sid'));
+            if(this.gamePage) {
+                this.app.startScenario();
+            }
+            return;
 		}
 		this.sid = 0;
 		setCookie('sid', null);
