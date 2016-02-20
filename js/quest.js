@@ -73,7 +73,7 @@ var QuestApplication = function (doc) {
 	};
 
 	this.updateHistory = function(history) {
-		this.ui.levelHistory.innerHTML = '';
+		/*this.ui.levelHistory.innerHTML = '';
 
 		if (!history || history.length == 0) {
 			this.ui.levelHistory.parentNode.style.display = 'none';
@@ -86,7 +86,7 @@ var QuestApplication = function (doc) {
 			listHTML += '<li' + (i == count-1 ? ' class="act"' : '') + '><img alt="" src="' + history[i] + '"><span>&nbsp;</span></li>';
 		}
 		this.ui.levelHistory.innerHTML = listHTML;
-		this.ui.levelHistory.parentNode.style.display = 'block';
+		this.ui.levelHistory.parentNode.style.display = 'block';*/
 	};
 
 	/**
@@ -101,7 +101,7 @@ var QuestApplication = function (doc) {
 		if (this.nextLevel) {
 			this.level = this.nextLevel;
 			this.level.displayLevel();
-			$.scrollTo('#screen_game', 800);
+			$('#screen_game').scrollTo(800);
 			this.nextLevel = null;
 		}
 	};
@@ -148,6 +148,10 @@ var QuestApplication = function (doc) {
 
 	this.scenarioITClick = function(e) {
 		if (e) e.preventDefault();
+		this.startScenario();
+	};
+
+	this.startScenario = function() {
 		if (!this.sid) {
 			authorizer.authorizeOrRegister();
 			this.scenarioPending = createListenerFunction(this.scenarioITClick, this);
@@ -160,25 +164,6 @@ var QuestApplication = function (doc) {
 			{
 				sid: this.sid,
 				scenario: 'P'
-			},
-			createListenerFunction(this.levelListener, this)
-		);
-	};
-
-	this.scenarioKClick = function(e) {
-		if (e) e.preventDefault();
-		if (!this.sid) {
-			authorizer.authorizeOrRegister();
-			this.scenarioPending = createListenerFunction(this.scenarioKClick, this);
-			return;
-		}
-		this.scenarioPending = null;
-		this.scenario = 'K';
-		$.getJSON(
-			WEB_GET_LATEST_LEVEL,
-			{
-				sid: this.sid,
-				scenario: 'K'
 			},
 			createListenerFunction(this.levelListener, this)
 		);

@@ -5,7 +5,7 @@
 
 var WEB_ROOT = 'http://83.166.241.9:8080/Service.svc/';
 var WEB_CLIENTS_SERVICE_ROOT = WEB_ROOT + "IClientService/";
-var WEB_UPLOADER_URL = WEB_ROOT + 'CheckResults';
+var WEB_UPLOADER_URL = WEB_CLIENTS_SERVICE_ROOT + 'CheckResults';
 var WEB_AUTHORIZE = WEB_CLIENTS_SERVICE_ROOT + 'Login';
 var WEB_REGISTER_1 = WEB_CLIENTS_SERVICE_ROOT + 'Register';
 var WEB_REGISTER_2 = WEB_CLIENTS_SERVICE_ROOT + 'Register';
@@ -125,7 +125,7 @@ var QUIZ_QUESTION_TEMPLATE = '			<div class="cnt-item">\
 	</div>\
 	<div class="inner-small">&nbsp;</div>';
 
-var QUIZ_OPTION_TEMPLATE = '<li><label><input type="{!type!}" name="{!name!}" value="{!value!}">{!title!}</label></li>';
+var QUIZ_OPTION_TEMPLATE = '<li><label><input type="{!type!}" name="{!name!}" value="{!value!}"><span>{!title!}</span></label></li>';
 
 var FILE_TASK_NOTICES = {};
 FILE_TASK_NOTICES[FILE_STATE.complete] = 'Поздравляем, программа отработала правильно. Можете переходить к следующему уровню.';

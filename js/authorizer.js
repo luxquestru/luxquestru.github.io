@@ -31,8 +31,10 @@ var Authorizer = function (doc, app) {
 	this.codeSent = false;
 	this.login = '';
 	this.phone = '';
+    this.name = '';
 	this.specialization = '';
 	this.workplace = '';
+    this.gamePage = false;
 
 	this.store = function(sid) {
 		console.log('Authorizer.store: sid=' + sid);
@@ -44,7 +46,7 @@ var Authorizer = function (doc, app) {
         if(this.ui.headerLogin != null) this.ui.headerLogin.style.display = sid ? 'none' : 'block';
         if(this.ui.headerRegister != null)   this.ui.headerRegister.style.display = sid ? 'none' : 'block';
         if(this.ui.headerRegisterButton != null)   this.ui.headerRegisterButton.style.display = sid ? 'none' : 'block';
-        if(this.ui.headerUserValue != null) this.ui.headerUserValue.innerHTML = this.login;
+        if(this.ui.headerUserValue != null) this.ui.headerUserValue.innerHTML = this.name;
 		if (this.app) this.app.setSID(this.sid);
 	};
 
@@ -64,7 +66,15 @@ var Authorizer = function (doc, app) {
 		if (textStatus == 'success') {
 			if (data.ErrorCode == 0) {
 				this.login = data.Message.login;
+                if(data.Message.name && data.Message.name.length) {
+                    this.name = data.Message.name;
+                } else {
+                    this.name = this.login;
+                }
 				this.store(getCookie('sid'));
+                if(this.gamePage) {
+                    this.app.startScenario();
+                }
 				return;
 			}
 		}
@@ -112,9 +122,14 @@ var Authorizer = function (doc, app) {
 		if (textStatus == 'success') {
 			if (data.ErrorCode == 0 && data.Message) {
 				if (data.Message.sid) {
+                    if(data.Message.name && data.Message.name.length) {
+                        this.name = data.Message.name;
+                    } else {
+                        this.name = this.login;
+                    }
                     this.store(data.Message.sid);
-                    window.location = "./index.html"
-                    // window.location = "./question.html"
+                    // window.location = "./index.html"
+                    window.location = "./question.html"
 				} else {
 					alert(data.Message);
 				}
@@ -170,8 +185,8 @@ var Authorizer = function (doc, app) {
 						if (data.Message.sid) {
 							alert('Успешная регистрация');
 							this.store(data.Message.sid);
-                            window.location = "./index.html"
-                            // window.location = "./question.html"
+                            // window.location = "./index.html"
+                             window.location = "./question.html"
 						} else {
 							alert(data.Message);
 						}
