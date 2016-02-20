@@ -78,6 +78,7 @@ var Authorizer = function (doc, app) {
 		}
 		this.sid = 0;
 		setCookie('sid', null);
+        this.store(null);
 	};
 
 	this.authorizeOrRegister = function() {
