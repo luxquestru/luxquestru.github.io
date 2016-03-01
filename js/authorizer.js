@@ -31,10 +31,10 @@ var Authorizer = function (doc, app) {
 	this.codeSent = false;
 	this.login = '';
 	this.phone = '';
-    this.name = '';
+	this.name = '';
 	this.specialization = '';
 	this.workplace = '';
-    this.gamePage = false;
+	    this.gamePage = false;
 
 	this.store = function(sid) {
 		console.log('Authorizer.store: sid=' + sid);
@@ -43,10 +43,10 @@ var Authorizer = function (doc, app) {
 		else deleteCookie('sid');
 		if(this.ui.headerAuth != null)  this.ui.headerAuth.style.display = sid ? 'none' : 'block';
 		if(this.ui.headerUser != null)  this.ui.headerUser.style.display = sid ? 'block' : 'none';
-        if(this.ui.headerLogin != null) this.ui.headerLogin.style.display = sid ? 'none' : 'block';
-        if(this.ui.headerRegister != null)   this.ui.headerRegister.style.display = sid ? 'none' : 'block';
-        if(this.ui.headerRegisterButton != null)   this.ui.headerRegisterButton.style.display = sid ? 'none' : 'block';
-        if(this.ui.headerUserValue != null) this.ui.headerUserValue.innerHTML = this.name;
+	        if(this.ui.headerLogin != null) this.ui.headerLogin.style.display = sid ? 'none' : 'block';
+        	if(this.ui.headerRegister != null)   this.ui.headerRegister.style.display = sid ? 'none' : 'block';
+	        if(this.ui.headerRegisterButton != null)   this.ui.headerRegisterButton.style.display = sid ? 'none' : 'block';
+        	if(this.ui.headerUserValue != null) this.ui.headerUserValue.innerHTML = this.name;
 		if (this.app) this.app.setSID(this.sid);
 	};
 
@@ -110,7 +110,7 @@ var Authorizer = function (doc, app) {
 			WEB_AUTHORIZE,
 			{
 				username: this.ui.popupAuthLogin.value,
-				pwd:      this.ui.popupAuthPass.value
+				pwd:      md5(this.ui.popupAuthPass.value)
 			},
 			createListenerFunction(this.submitAuthListener, this)
 		);
@@ -149,11 +149,11 @@ var Authorizer = function (doc, app) {
 				WEB_REGISTER_2,
 				{
 					email: this.ui.popupRegEmail.value,
-                    name: this.ui.popupRegName.value,
+			                name: this.ui.popupRegName.value,
 					phone: this.ui.popupRegPhone.value,
-                    workplace: this.ui.popupRegJob.value,
-                    specialization: this.ui.popupRegSpecial.value,
-					pwd:  this.ui.popupRegPass.value,
+			                workplace: this.ui.popupRegJob.value,
+			                specialization: this.ui.popupRegSpecial.value,
+					pwd:  md5(this.ui.popupRegPass.value),
 					code: this.ui.popupRegCode.value
 				},
 				createListenerFunction(this.submitRegListener, this)
