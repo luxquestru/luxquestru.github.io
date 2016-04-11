@@ -66,7 +66,7 @@
                           <li><a href="#" id="header_user_logout">Выйти</a></li>
                       </ul>
                   </li>
-                  <li id="header_auth_reg"><a href="./signup.html">Регистрация</a></li>
+                  <li id="header_auth_reg"><a href="./signup.html" style="display: none">Регистрация</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
@@ -82,7 +82,7 @@
                         <p class="lead">Первый квест, созданный компанией Luxoft. Это уникальная возможность для самых талантливых и знающих разработчиков проверить свои знания и потягаться силами друг с другом. Победа ждет только сильнейших в своем деле!</p>
                         <!--<p class="lead">Регистрация откроется 19 февраля 2016 года</p>-->
 
-                        <div class="row" id="header_auth">
+                        <div class="row" id="header_auth" style="display: none">
                             <div class="col-sm-8">
                                 <a class="btn btn-primary btn-lg btn-block" href="./signup.html" id="header_auth_reg_button" style="display: none">Зарегистрироваться</a>
                             </div>
@@ -127,9 +127,9 @@
     </div>
 
     <script type="text/javascript">
-        var app = new QuestApplication(document);
-        var authorizer = new Authorizer(document, app);
-        authorizer.isAuthorized();
+//        var app = new QuestApplication(document);
+//        var authorizer = new Authorizer(document, app);
+//        authorizer.isAuthorized();
     </script>
 
 
